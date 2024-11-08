@@ -14,7 +14,7 @@ const Form = ({ formData, setFormData, setValue }) => {
       servicetype: formData.servicetype||"",
       location: formData.location
     }));
-  }, [formData.location]);
+  }, [formData.description, formData.servicetype, formData.location]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
