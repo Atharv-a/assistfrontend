@@ -19,6 +19,7 @@ const Form = ({ formData, setFormData, setValue }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLocalData({ ...localData, [name]: value });
+    setFormData({...formData, [name]:value});
   };
 
   const  handleSubmit = async (e) => {
@@ -43,9 +44,8 @@ const Form = ({ formData, setFormData, setValue }) => {
     }
 
     toast.remove();
-    const success = await postFormData(toDTO(localData));
+    const success = await postFormData(toDTO(formData));
     if(success === true){
-      setFormData(localData)
       setValue('two')
     }
   };

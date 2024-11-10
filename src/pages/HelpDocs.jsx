@@ -27,7 +27,14 @@ function HelpDocs() {
       <Grid container spacing={2}>
         {disasters.map((disaster) => (
           <Grid item xs={12} key={disaster.id}>
-            <Card sx={{ cursor: 'pointer', border:'0.1rem solid',  borderColor:'secondary.main'}} onClick={() => handleToggle(disaster.id)}>
+            <Card sx={{ cursor: 'pointer', border:'0.1rem solid',  borderColor:'secondary.main',  
+                        transition: 'transform 0.3s, box-shadow 0.2s', // Smooth transition for hover effects
+                        '&:hover': {
+                          transform: 'scale(1.02)', // Slightly enlarges card on hover
+                          boxShadow: 3, // Adds shadow on hover
+                          borderColor: 'primary.main', // Optional: change border color on hover
+                        },}} 
+              onClick={() => handleToggle(disaster.id)}>
               <CardContent>
                 <Typography variant="h5" >
                   {disaster.name}
